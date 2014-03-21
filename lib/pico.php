@@ -196,7 +196,7 @@ class Pico {
 		$defaults = array(
 			'site_title' => 'Pico',
 			'base_url' => $this->base_url(),
-                        'img_url' => $this->base_url() . '/content/images',
+                        'img_url' => $this->base_url() . '/images',
 			'theme' => 'default',
 			'date_format' => 'jS M Y',
 			'twig_config' => array('cache' => false, 'autoescape' => false, 'debug' => false),
