@@ -180,7 +180,18 @@ a:hover, a:active {
 	height: 100%;
 	overflow: auto;
 	border-right: 1px solid #DCE0E3;
+	padding-top: 35px;
 }
+
+#sidebar .sidebarNavHeading {
+	background: #efefef;
+	padding: 5px 0px;
+	text-indent: 10px;
+	font-weight: bolder;
+	color: #555;
+	border-bottom: 1px solid #DCE0E3;
+} 
+
 #sidebar .controls {
 	position: fixed;
 	top: 0;
@@ -203,7 +214,7 @@ a:hover, a:active {
 }
 #sidebar .nav {
 	list-style: none;
-	margin: 38px 0 25px 0;
+	margin: 0;
 	padding: 0;
 }
 #sidebar li { 
