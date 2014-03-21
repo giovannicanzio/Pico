@@ -80,6 +80,9 @@ class Pico {
 		$next_page = prev($pages);
 		$this->run_hooks('get_pages', array(&$pages, &$current_page, &$prev_page, &$next_page));
 
+                // Get all the images
+                // $images = $this->get_images()
+                                
 		// Load the theme
 		$this->run_hooks('before_twig_register');
 		Twig_Autoloader::register();
@@ -264,6 +267,26 @@ class Pico {
 		
 		return $sorted_pages;
 	}
+        
+	/**
+	 * Get a list of images
+	 *
+	 * @param string $base_url the base URL of the site
+	 * @param string $order_by order by "alpha" or "date"
+	 * @param string $order order "asc" or "desc"
+	 * @return array $sorted_pages an array of pages
+	 */
+        
+        protected function get_images($base_url, $order_by = 'alpha', $order = 'asc', $excerpt_length = 50) 
+        {
+		global $config;
+		
+		$images = $this->get_files(IMG_DIR);
+
+		foreach($pages as $key=>$page){
+                }
+        }
+        
 	
 	/**
 	 * Processes any hooks and runs them
