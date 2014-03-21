@@ -81,7 +81,7 @@ class Pico {
 		$this->run_hooks('get_pages', array(&$pages, &$current_page, &$prev_page, &$next_page));
 
                 // Get all the images
-                // $images = $this->get_images()
+                 $images = $this->get_images($settings['img_url']);
                                 
 		// Load the theme
 		$this->run_hooks('before_twig_register');
@@ -103,6 +103,8 @@ class Pico {
 			'current_page' => $current_page,
 			'next_page' => $next_page,
 			'is_front_page' => $url ? false : true,
+                        'images' => $images
+
 		);
 
 		$template = (isset($meta['template']) && $meta['template']) ? $meta['template'] : 'index';
@@ -194,6 +196,7 @@ class Pico {
 		$defaults = array(
 			'site_title' => 'Pico',
 			'base_url' => $this->base_url(),
+                        'img_url' => $this->base_url() . '/content/images',
 			'theme' => 'default',
 			'date_format' => 'jS M Y',
 			'twig_config' => array('cache' => false, 'autoescape' => false, 'debug' => false),
@@ -277,14 +280,23 @@ class Pico {
 	 * @return array $sorted_pages an array of pages
 	 */
         
-        protected function get_images($base_url, $order_by = 'alpha', $order = 'asc', $excerpt_length = 50) 
+        protected function get_images($base_url) 
         {
 		global $config;
 		
 		$images = $this->get_files(IMG_DIR);
-
-		foreach($pages as $key=>$page){
+                $imagesList = array();
+                
+		foreach($images as $key=>$image){
+                    $data = array(
+                        'filename' => basename($image),
+                        'url' => str_replace(IMG_DIR, $base_url .'/', $image)
+                    );
+                    array_push($imagesList, $data);
                 }
+                
+                return $imagesList;
+                
         }
         
 	

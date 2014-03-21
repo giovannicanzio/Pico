@@ -25,7 +25,11 @@
 		{% endfor %}
 		</ul>
 		<h4 class="sidebarNavHeading">Images</h4>
-		
+                <ul>
+		{% for image in images %}
+                <li><a href="{{ image.url }}" target="_blank">{{ image.filename}}</a></li>
+                {% endfor %}
+                </ul>
 	</div>
 
 	<div id="main">

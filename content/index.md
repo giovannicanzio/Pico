@@ -7,6 +7,8 @@ Description: This description will go in the meta description tag
 
 Congratulations, you have successfully installed [Pico](http://pico.dev7studios.com). Pico is a stupidly simple, blazing fast, flat file CMS.
 
+<img src="http://localhost:8080/pico/images/print_cover-big.jpg" />
+
 ### Creating Content
 
 Pico is a flat file CMS, this means there is no administration backend and database to deal with. You simply create `.md` files in the "content"
@@ -17,16 +19,16 @@ If you create a folder within the content folder (e.g. `content/sub`) and put an
 and you will be able to access it from the URL `http://yousite.com/sub/page`. Below we've shown some examples of content locations and their corresponing URL's:
 
 <table>
-	<thead>
-		<tr><th>Physical Location</th><th>URL</th></tr>
-	</thead>
-	<tbody>
-		<tr><td>content/index.md</td><td>/</td></tr>
-		<tr><td>content/sub.md</td><td>/sub</td></tr>
-		<tr><td>content/sub/index.md</td><td>/sub (same as above)</td></tr>
-		<tr><td>content/sub/page.md</td><td>/sub/page</td></tr>
-		<tr><td>content/a/very/long/url.md</td><td>/a/very/long/url</td></tr>
-	</tbody>
+ <thead>
+ 	<tr><th>Physical Location</th><th>URL</th></tr>
+ </thead>
+ <tbody>
+ 	<tr><td>content/index.md</td><td>/</td></tr>
+ 	<tr><td>content/sub.md</td><td>/sub</td></tr>
+ 	<tr><td>content/sub/index.md</td><td>/sub (same as above)</td></tr>
+ 	<tr><td>content/sub/page.md</td><td>/sub/page</td></tr>
+ 	<tr><td>content/a/very/long/url.md</td><td>/a/very/long/url</td></tr>
+ </tbody>
 </table>
 
 If a file cannot be found, the file `content/404.md` will be shown.
@@ -37,19 +39,19 @@ Text files are marked up using [Markdown](http://daringfireball.net/projects/mar
 
 At the top of text files you can place a block comment and specify certain attributes of the page. For example:
 
-	/*
-	Title: Welcome
-	Description: This description will go in the meta description tag
-	Author: Joe Bloggs
-	Date: 2013/01/01
-	Robots: noindex,nofollow
-	*/
+ /*
+ Title: Welcome
+ Description: This description will go in the meta description tag
+ Author: Joe Bloggs
+ Date: 2013/01/01
+ Robots: noindex,nofollow
+ */
 
 These values will be contained in the `{{ meta }}` variable in themes (see below).
 
 There are also certain variables that you can use in your text files:
 
-* <code>&#37;base_url&#37;</code> - The URL to your Pico site
+* <code>%base_url%</code> - The URL to your Pico site
 
 ### Themes
 
@@ -66,21 +68,21 @@ All themes must include an `index.html` file to define the HTML structure of the
 * `{{ theme_url }}` - The URL to the Pico active theme directory
 * `{{ site_title }}` - Shortcut to the site title (defined in config.php)
 * `{{ meta }}` - Contains the meta values from the current page
-	* `{{ meta.title }}`
-	* `{{ meta.description }}`
-	* `{{ meta.author }}`
-	* `{{ meta.date }}`
-	* `{{ meta.date_formatted }}`
-	* `{{ meta.robots }}`
+ * `{{ meta.title }}`
+ * `{{ meta.description }}`
+ * `{{ meta.author }}`
+ * `{{ meta.date }}`
+ * `{{ meta.date_formatted }}`
+ * `{{ meta.robots }}`
 * `{{ content }}` - The content of the current page (after it has been processed through Markdown)
 * `{{ pages }}` - A collection of all the content in your site
-	* `{{ page.title }}`
-	* `{{ page.url }}`
-	* `{{ page.author }}`
-	* `{{ page.date }}`
-	* `{{ page.date_formatted }}`
-	* `{{ page.content }}`
-	* `{{ page.excerpt }}`
+ * `{{ page.title }}`
+ * `{{ page.url }}`
+ * `{{ page.author }}`
+ * `{{ page.date }}`
+ * `{{ page.date_formatted }}`
+ * `{{ page.content }}`
+ * `{{ page.excerpt }}`
 * `{{ prev_page }}` - A page object of the previous page (relative to current_page)
 * `{{ current_page }}` - A page object of the current_page
 * `{{ next_page }}` - A page object of the next page (relative to current_page)
@@ -88,11 +90,11 @@ All themes must include an `index.html` file to define the HTML structure of the
 
 Pages can be used like:
 
-<pre>&lt;ul class=&quot;nav&quot;&gt;
-	{% for page in pages %}
-	&lt;li&gt;&lt;a href=&quot;{{ page.url }}&quot;&gt;{{ page.title }}&lt;/a&gt;&lt;/li&gt;
-	{% endfor %}
-&lt;/ul&gt;</pre>
+<pre><ul class="nav">
+ {% for page in pages %}
+ <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+ {% endfor %}
+</ul></pre>
 
 ### Plugins
 
