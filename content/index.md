@@ -7,7 +7,7 @@ Description: This description will go in the meta description tag
 
 Congratulations, you have successfully installed [Pico](http://pico.dev7studios.com). Pico is a stupidly simple, blazing fast, flat file CMS.
 
-<img src="http://localhost:8080/pico/images/print_cover-big.jpg" />
+<img src="http://localhost:8080/pico/images/test_image_1.gif" />
 
 ### Creating Content
 
